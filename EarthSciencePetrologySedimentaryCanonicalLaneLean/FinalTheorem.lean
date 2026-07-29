@@ -1,0 +1,20 @@
+import canonicalLaneMathlib.AdmissibleClass
+import EarthSciencePetrologySedimentaryCanonicalLaneLean.SedimentaryBasinPackage
+import EarthSciencePetrologySedimentaryCanonicalLaneLean.ProvenanceAnalysisPackage
+import EarthSciencePetrologySedimentaryCanonicalLaneLean.DiageneticAlterationPackage
+import EarthSciencePetrologySedimentaryCanonicalLaneLean.FaciesModelPackage
+import EarthSciencePetrologySedimentaryCanonicalLaneLean.SequenceStratigraphyPackage
+import EarthSciencePetrologySedimentaryCanonicalLaneLean.PetroleumSystemPackage
+
+namespace HautevilleHouse
+namespace EarthSciencePetrologySedimentaryCanonicalLaneLean
+
+def SedimentaryAdmissibleClass (A : AdmissibleClass) : Prop :=
+  bridgeClosed A ∧ gateClosed A
+
+theorem sedimentary_admissible_endgame (A : AdmissibleClass) :
+    SedimentaryAdmissibleClass A := by
+  exact And.intro (bridge_from_admissible_class A) (gate_from_admissible_class A)
+
+end EarthSciencePetrologySedimentaryCanonicalLaneLean
+end HautevilleHouse
